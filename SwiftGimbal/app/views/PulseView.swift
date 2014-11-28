@@ -18,10 +18,13 @@ class PulseView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        // to avoid constraint conflicts from programmatically adding constraints, 
+        // disable translating autoresizing masks into constraints
         setTranslatesAutoresizingMaskIntoConstraints(false)
         widthConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem:nil, attribute:NSLayoutAttribute.Width, multiplier:1.0, constant:frame.size.width)
         heightConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem:nil, attribute:NSLayoutAttribute.Height, multiplier:1.0, constant:frame.size.height)
         addConstraints([widthConstraint!,heightConstraint!])
+        
         backgroundColor = UIColor.clearColor()
         pulseColor = startColor
     }
@@ -63,7 +66,7 @@ class PulseView: UIView {
         
         CGContextDrawRadialGradient(context, gradient, startPoint, startRadius, endPoint, endRadius, 0)
         
-        // radial gradient looks jagged, so create a circel to smooth the edge
+        // radial gradient looks jagged, so create a circle to smooth the edge
         createBezierCircle(rect, circleColor:circleColor)
     }
 
@@ -106,15 +109,18 @@ class PulseView: UIView {
         layer.addAnimation(growShrink, forKey: "growAndShrinkCircle")
     }
     
-    func changePulseSize(transmitter: FYXTransmitter, rssiStrength strength: NSNumber) {
+    func changePulseColor(transmitter: FYXTransmitter, rssiStrength strength: NSNumber) {
         var newPulseSize = translateRSSIStrengthToSize(strength)
-        var growShrinkAnimation: CABasicAnimation = layer.animationForKey("growAndShrinkCircle") as CABasicAnimation
         var proximityRatio = CGFloat(STRONGEST_POSSIBLE_SIGNAL/strength.floatValue)
+        // change the pulsating circle color according to the proximity of the beacon
+        // blue means it is closer and more reddish means it's farther away
         pulseColor = UIColor(red: 1.0 - proximityRatio, green: 0, blue: proximityRatio, alpha: 1.0)
+        // ensure drawRect gets called so the color actually changes
         setNeedsDisplay()
     }
     
     func translateRSSIStrengthToSize(transmitterStrength: NSNumber) -> CGSize {
+        // be sure to avoid dividing by zero
         var strength = transmitterStrength.integerValue == 0 ? 1 : transmitterStrength.floatValue
         var translatedStrength: Float = STRONGEST_POSSIBLE_SIGNAL / strength
         var newSize = CGSizeMake(CGRectGetWidth(self.bounds)*CGFloat(translatedStrength), CGRectGetHeight(self.bounds)*CGFloat(translatedStrength))

@@ -26,8 +26,11 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
     init(sightingManager: FYXSightingManager, currentViewController: UIViewController, delegate: BeaconManagerDelegate) {
         super.init()
         self.currentViewController = currentViewController
+        
         self.sightingManager = sightingManager
         self.sightingManager!.delegate = self
+        
+        // make sure to get arrivals and departures
         self.visitManager = FYXVisitManager()
         self.visitManager!.delegate = self
         self.delegate = delegate
@@ -78,6 +81,7 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
     
     //MARK: - Helper Functions -
     func startBeaconService() {
+        // retrieve our application info from the plist to authorize with Gimbal Servers
         var applicationInfo = loadPlist("GimbalManagerApplicationInfo")
         
         FYX.setAppId(applicationInfo["GimbalApplicationID"]!.string,

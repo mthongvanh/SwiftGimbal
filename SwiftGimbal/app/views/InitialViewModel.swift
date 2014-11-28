@@ -23,6 +23,7 @@ class InitialViewModel: NSObject {
     func setupViews() {
         pulseView = PulseView(frame: CGRectMake(0, 0, 150, 150))
         parentView?.addSubview(pulseView!)
+        // ensure pulseView isn't obscuring the labels
         parentView?.bringSubviewToFront(itemStrengthLabel!)
         parentView?.bringSubviewToFront(transmitterLabel!)
         
@@ -34,7 +35,7 @@ class InitialViewModel: NSObject {
     }
     
     func sawBeacon(beacon: FYXTransmitter, rssiStrength: NSNumber) {
-        pulseView?.changePulseSize(beacon, rssiStrength: rssiStrength)
+        pulseView?.changePulseColor(beacon, rssiStrength: rssiStrength)
         updateLabels(rssiStrength: rssiStrength, beacon: beacon)
     }
     
