@@ -73,6 +73,10 @@ class ViewController: UIViewController, BeaconManagerDelegate, UITableViewDelega
         beaconTableView.reloadData()
     }
     
+    func discoveredNewBeacon(transmitter: CHABeacon) {
+        beaconTableView.reloadData()
+    }
+    
     //MARK: UITableViewDataSource and Delegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return gimbalBeaconManager.sightedBeacons.count

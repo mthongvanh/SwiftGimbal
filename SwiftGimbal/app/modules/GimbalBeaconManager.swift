@@ -16,6 +16,7 @@ import Foundation
 protocol BeaconManagerDelegate {
     func didReceiveSighting(transmitter: FYXTransmitter, strength: NSNumber)
     func didDepartFrom(transmitter: FYXTransmitter)
+    func discoveredNewBeacon(transmitter: CHABeacon)
 }
 
 class CHABeacon: NSObject {
@@ -60,6 +61,7 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
         if !containsBeacon(beaconCollection: sightedBeacons, identifier: transmitter.identifier) {
             var sightedBeacon: CHABeacon = CHABeacon(identifier: transmitter.identifier, rssiStrength: RSSI)
             sightedBeacons.append(sightedBeacon)
+            delegate?.discoveredNewBeacon(sightedBeacon)
         }
         delegate?.didReceiveSighting(transmitter,strength:RSSI)
     }
@@ -70,6 +72,7 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
         var arrivalBeacon: CHABeacon? = CHABeacon(identifier: visit.transmitter.identifier, rssiStrength: 0)
         if !containsBeacon(beaconCollection: sightedBeacons, identifier: arrivalBeacon!.identifier) {
             sightedBeacons.append(arrivalBeacon!)
+            delegate?.discoveredNewBeacon(arrivalBeacon!)
         }
     }
     

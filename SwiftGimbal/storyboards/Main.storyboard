@@ -39,15 +39,17 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yz-gS-Ger">
-                                <rect key="frame" x="252" y="329" width="96" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yz-gS-Ger">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="HYS-af-4T4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AE9-Ft-4Ps">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AE9-Ft-4Ps">
                                 <rect key="frame" x="16" y="455" width="568" height="125"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.13" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="FID-GP-uqR"/>
                                 </constraints>
@@ -71,7 +73,21 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftGimbal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLZ-jR-CGW">
+                                <rect key="frame" x="16" y="81" width="568" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="s4j-3k-w9V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-BoldItalic" family="Gill Sans" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -80,8 +96,11 @@
                             <constraint firstAttribute="centerY" secondItem="leX-de-7kC" secondAttribute="centerY" constant="0.5" id="DBX-Dy-3HW"/>
                             <constraint firstItem="AE9-Ft-4Ps" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Dkm-Kc-wuR"/>
                             <constraint firstItem="AE9-Ft-4Ps" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Ebw-zR-tyz"/>
+                            <constraint firstItem="OLZ-jR-CGW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="17" id="Hs8-4t-X4U"/>
                             <constraint firstAttribute="centerX" secondItem="6yz-gS-Ger" secondAttribute="centerX" id="Jrg-Ro-DL0"/>
-                            <constraint firstItem="6yz-gS-Ger" firstAttribute="top" secondItem="leX-de-7kC" secondAttribute="bottom" constant="-1" id="kJV-H4-wse"/>
+                            <constraint firstItem="OLZ-jR-CGW" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="KAd-aV-KQY"/>
+                            <constraint firstItem="OLZ-jR-CGW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="hN3-3D-OWt"/>
+                            <constraint firstItem="6yz-gS-Ger" firstAttribute="top" secondItem="leX-de-7kC" secondAttribute="bottom" id="kJV-H4-wse"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KWe-ru-PAY"/>
