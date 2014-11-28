@@ -52,7 +52,7 @@ class InitialViewModel: NSObject {
         updateLabels(rssiStrength: rssiStrength, beacon: beacon)
     }
     
-    func departed(beacon: FYXTransmitter) {
+    func departed(beacon: FYXTransmitter?) {
         itemStrengthLabel?.text = "0"
         transmitterLabel?.text = ""
         pulseView?.departed()

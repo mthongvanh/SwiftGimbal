@@ -90,6 +90,7 @@ class ViewController: UIViewController, BeaconManagerDelegate, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         activeBeacon = gimbalBeaconManager.sightedBeacons[indexPath.row]
+        viewModel?.departed(nil)
     }
     
     //MARK: Helper Functions
