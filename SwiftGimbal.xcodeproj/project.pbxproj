@@ -7,12 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C2D195F1A252B9C003752E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D195E1A252B9C003752E6 /* AppDelegate.swift */; };
-		4C2D19611A252B9C003752E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D19601A252B9C003752E6 /* ViewController.swift */; };
-		4C2D19641A252B9C003752E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D19621A252B9C003752E6 /* Main.storyboard */; };
 		4C2D19661A252B9C003752E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D19651A252B9C003752E6 /* Images.xcassets */; };
 		4C2D19691A252B9C003752E6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D19671A252B9C003752E6 /* LaunchScreen.xib */; };
 		4C2D19751A252B9C003752E6 /* SwiftGimbalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D19741A252B9C003752E6 /* SwiftGimbalTests.swift */; };
+		4C2D19A51A252C59003752E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D19951A252C59003752E6 /* ViewController.swift */; };
+		4C2D19A71A252C59003752E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D19A01A252C59003752E6 /* AppDelegate.swift */; };
+		4C2D19A81A252C59003752E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D19A41A252C59003752E6 /* Main.storyboard */; };
+		4C2D19AB1A2530A8003752E6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19AA1A2530A8003752E6 /* CoreBluetooth.framework */; };
+		4C2D19AD1A2530B1003752E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19AC1A2530B1003752E6 /* CoreLocation.framework */; };
+		4C2D19AF1A2530BB003752E6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19AE1A2530BB003752E6 /* CoreData.framework */; };
+		4C2D19B11A2530C3003752E6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19B01A2530C3003752E6 /* libz.dylib */; };
+		4C2D19B31A2530CA003752E6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19B21A2530CA003752E6 /* MapKit.framework */; };
+		4C2D19B51A2530CF003752E6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19B41A2530CF003752E6 /* Security.framework */; };
+		4C2D19B71A253184003752E6 /* GimbalBeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D19B61A253184003752E6 /* GimbalBeaconManager.swift */; };
+		4C2D19C91A2543E4003752E6 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19BD1A2543E4003752E6 /* Common.framework */; };
+		4C2D19CA1A2543E4003752E6 /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19BF1A2543E4003752E6 /* ContextCore.framework */; };
+		4C2D19CB1A2543E4003752E6 /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19C11A2543E4003752E6 /* ContextLocation.framework */; };
+		4C2D19CC1A2543E4003752E6 /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D19C31A2543E4003752E6 /* DataModels.bundle */; };
+		4C2D19CD1A2543E4003752E6 /* ContextProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19C51A2543E4003752E6 /* ContextProfiling.framework */; };
+		4C2D19CE1A2543E4003752E6 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19C61A2543E4003752E6 /* FYX.framework */; };
+		4C2D19CF1A2543E4003752E6 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D19C81A2543E4003752E6 /* NetworkServices.framework */; };
+		4CBF73001A2556EB0072E3AA /* UserContext.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF72FF1A2556EB0072E3AA /* UserContext.plist */; };
+		4CBF73021A25C43A0072E3AA /* GimbalManagerApplicationInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF73011A25C43A0072E3AA /* GimbalManagerApplicationInfo.plist */; };
+		4CBF73061A267A350072E3AA /* PulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF73051A267A350072E3AA /* PulseView.swift */; };
+		4CBF73081A268E100072E3AA /* InitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF73071A268E100072E3AA /* InitialViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,15 +45,34 @@
 
 /* Begin PBXFileReference section */
 		4C2D19591A252B9C003752E6 /* SwiftGimbal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGimbal.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C2D195D1A252B9C003752E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C2D195E1A252B9C003752E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C2D19601A252B9C003752E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4C2D19631A252B9C003752E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C2D19651A252B9C003752E6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C2D19681A252B9C003752E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4C2D196E1A252B9C003752E6 /* SwiftGimbalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGimbalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2D19731A252B9C003752E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C2D19741A252B9C003752E6 /* SwiftGimbalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGimbalTests.swift; sourceTree = "<group>"; };
+		4C2D19951A252C59003752E6 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C2D199B1A252C59003752E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C2D19A01A252C59003752E6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C2D19A41A252C59003752E6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4C2D19AA1A2530A8003752E6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4C2D19AC1A2530B1003752E6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4C2D19AE1A2530BB003752E6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C2D19B01A2530C3003752E6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4C2D19B21A2530CA003752E6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4C2D19B41A2530CF003752E6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4C2D19B61A253184003752E6 /* GimbalBeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GimbalBeaconManager.swift; sourceTree = "<group>"; };
+		4C2D19BD1A2543E4003752E6 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
+		4C2D19BF1A2543E4003752E6 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
+		4C2D19C11A2543E4003752E6 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
+		4C2D19C31A2543E4003752E6 /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
+		4C2D19C51A2543E4003752E6 /* ContextProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextProfiling.framework; sourceTree = "<group>"; };
+		4C2D19C61A2543E4003752E6 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
+		4C2D19C81A2543E4003752E6 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
+		4C2D19D01A254524003752E6 /* SwiftGimbal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftGimbal-Bridging-Header.h"; path = "SwiftGimbal/config/SwiftGimbal-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		4CBF72FF1A2556EB0072E3AA /* UserContext.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserContext.plist; sourceTree = "<group>"; };
+		4CBF73011A25C43A0072E3AA /* GimbalManagerApplicationInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GimbalManagerApplicationInfo.plist; sourceTree = "<group>"; };
+		4CBF73051A267A350072E3AA /* PulseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseView.swift; sourceTree = "<group>"; };
+		4CBF73071A268E100072E3AA /* InitialViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +80,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2D19B51A2530CF003752E6 /* Security.framework in Frameworks */,
+				4C2D19B31A2530CA003752E6 /* MapKit.framework in Frameworks */,
+				4C2D19CE1A2543E4003752E6 /* FYX.framework in Frameworks */,
+				4C2D19B11A2530C3003752E6 /* libz.dylib in Frameworks */,
+				4C2D19CD1A2543E4003752E6 /* ContextProfiling.framework in Frameworks */,
+				4C2D19AF1A2530BB003752E6 /* CoreData.framework in Frameworks */,
+				4C2D19AD1A2530B1003752E6 /* CoreLocation.framework in Frameworks */,
+				4C2D19CF1A2543E4003752E6 /* NetworkServices.framework in Frameworks */,
+				4C2D19C91A2543E4003752E6 /* Common.framework in Frameworks */,
+				4C2D19CB1A2543E4003752E6 /* ContextLocation.framework in Frameworks */,
+				4C2D19AB1A2530A8003752E6 /* CoreBluetooth.framework in Frameworks */,
+				4C2D19CA1A2543E4003752E6 /* ContextCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,22 +126,15 @@
 		4C2D195B1A252B9C003752E6 /* SwiftGimbal */ = {
 			isa = PBXGroup;
 			children = (
-				4C2D195E1A252B9C003752E6 /* AppDelegate.swift */,
-				4C2D19601A252B9C003752E6 /* ViewController.swift */,
-				4C2D19621A252B9C003752E6 /* Main.storyboard */,
+				4C2D19931A252C59003752E6 /* app */,
+				4C2D199A1A252C59003752E6 /* config */,
+				4C2D199F1A252C59003752E6 /* main */,
+				4C2D19A31A252C59003752E6 /* storyboards */,
 				4C2D19651A252B9C003752E6 /* Images.xcassets */,
 				4C2D19671A252B9C003752E6 /* LaunchScreen.xib */,
-				4C2D195C1A252B9C003752E6 /* Supporting Files */,
+				4C2D19A91A252C72003752E6 /* frameworks */,
 			);
 			path = SwiftGimbal;
-			sourceTree = "<group>";
-		};
-		4C2D195C1A252B9C003752E6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4C2D195D1A252B9C003752E6 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4C2D19711A252B9C003752E6 /* SwiftGimbalTests */ = {
@@ -110,6 +152,144 @@
 				4C2D19731A252B9C003752E6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C2D19931A252C59003752E6 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19941A252C59003752E6 /* controllers */,
+				4C2D19971A252C59003752E6 /* modules */,
+				4C2D19981A252C59003752E6 /* views */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		4C2D19941A252C59003752E6 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19951A252C59003752E6 /* ViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		4C2D19971A252C59003752E6 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19B61A253184003752E6 /* GimbalBeaconManager.swift */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		4C2D19981A252C59003752E6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4CBF73051A267A350072E3AA /* PulseView.swift */,
+				4CBF73071A268E100072E3AA /* InitialViewModel.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		4C2D199A1A252C59003752E6 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D199B1A252C59003752E6 /* Info.plist */,
+				4C2D19D01A254524003752E6 /* SwiftGimbal-Bridging-Header.h */,
+				4CBF72FF1A2556EB0072E3AA /* UserContext.plist */,
+				4CBF73011A25C43A0072E3AA /* GimbalManagerApplicationInfo.plist */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		4C2D199F1A252C59003752E6 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19A01A252C59003752E6 /* AppDelegate.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		4C2D19A31A252C59003752E6 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19A41A252C59003752E6 /* Main.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		4C2D19A91A252C72003752E6 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19BB1A2543E4003752E6 /* Frameworks */,
+				4C2D19B41A2530CF003752E6 /* Security.framework */,
+				4C2D19B21A2530CA003752E6 /* MapKit.framework */,
+				4C2D19B01A2530C3003752E6 /* libz.dylib */,
+				4C2D19AE1A2530BB003752E6 /* CoreData.framework */,
+				4C2D19AC1A2530B1003752E6 /* CoreLocation.framework */,
+				4C2D19AA1A2530A8003752E6 /* CoreBluetooth.framework */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		4C2D19BB1A2543E4003752E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19BC1A2543E4003752E6 /* Common.embeddedframework */,
+				4C2D19BE1A2543E4003752E6 /* ContextCore.embeddedframework */,
+				4C2D19C01A2543E4003752E6 /* ContextLocation.embeddedframework */,
+				4C2D19C41A2543E4003752E6 /* ContextProfiling.embeddedframework */,
+				4C2D19C61A2543E4003752E6 /* FYX.framework */,
+				4C2D19C71A2543E4003752E6 /* NetworkServices.embeddedframework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C2D19BC1A2543E4003752E6 /* Common.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19BD1A2543E4003752E6 /* Common.framework */,
+			);
+			path = Common.embeddedframework;
+			sourceTree = "<group>";
+		};
+		4C2D19BE1A2543E4003752E6 /* ContextCore.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19BF1A2543E4003752E6 /* ContextCore.framework */,
+			);
+			path = ContextCore.embeddedframework;
+			sourceTree = "<group>";
+		};
+		4C2D19C01A2543E4003752E6 /* ContextLocation.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19C11A2543E4003752E6 /* ContextLocation.framework */,
+				4C2D19C21A2543E4003752E6 /* Resources */,
+			);
+			path = ContextLocation.embeddedframework;
+			sourceTree = "<group>";
+		};
+		4C2D19C21A2543E4003752E6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19C31A2543E4003752E6 /* DataModels.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4C2D19C41A2543E4003752E6 /* ContextProfiling.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19C51A2543E4003752E6 /* ContextProfiling.framework */,
+			);
+			path = ContextProfiling.embeddedframework;
+			sourceTree = "<group>";
+		};
+		4C2D19C71A2543E4003752E6 /* NetworkServices.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D19C81A2543E4003752E6 /* NetworkServices.framework */,
+			);
+			path = NetworkServices.embeddedframework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +372,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C2D19641A252B9C003752E6 /* Main.storyboard in Resources */,
+				4CBF73001A2556EB0072E3AA /* UserContext.plist in Resources */,
+				4C2D19A81A252C59003752E6 /* Main.storyboard in Resources */,
 				4C2D19691A252B9C003752E6 /* LaunchScreen.xib in Resources */,
+				4C2D19CC1A2543E4003752E6 /* DataModels.bundle in Resources */,
 				4C2D19661A252B9C003752E6 /* Images.xcassets in Resources */,
+				4CBF73021A25C43A0072E3AA /* GimbalManagerApplicationInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +395,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C2D19611A252B9C003752E6 /* ViewController.swift in Sources */,
-				4C2D195F1A252B9C003752E6 /* AppDelegate.swift in Sources */,
+				4C2D19B71A253184003752E6 /* GimbalBeaconManager.swift in Sources */,
+				4CBF73081A268E100072E3AA /* InitialViewModel.swift in Sources */,
+				4C2D19A71A252C59003752E6 /* AppDelegate.swift in Sources */,
+				4CBF73061A267A350072E3AA /* PulseView.swift in Sources */,
+				4C2D19A51A252C59003752E6 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +422,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4C2D19621A252B9C003752E6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C2D19631A252B9C003752E6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4C2D19671A252B9C003752E6 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -336,9 +514,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SwiftGimbal/Info.plist;
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/Common.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/NetworkServices.embeddedframework",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGimbal/config/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SwiftGimbal/config/SwiftGimbal-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -346,9 +535,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SwiftGimbal/Info.plist;
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/Common.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks",
+					"$(PROJECT_DIR)/SwiftGimbal/frameworks/Frameworks/NetworkServices.embeddedframework",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGimbal/config/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SwiftGimbal/config/SwiftGimbal-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -405,6 +605,7 @@
 				4C2D197A1A252B9C003752E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C2D197B1A252B9C003752E6 /* Build configuration list for PBXNativeTarget "SwiftGimbalTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +614,7 @@
 				4C2D197D1A252B9C003752E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
