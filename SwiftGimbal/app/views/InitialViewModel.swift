@@ -7,12 +7,19 @@
 //
 
 import Foundation
+//MARK: - Protocol Declarations -
+protocol BeaconTableViewDelegate {
+    
+}
+
+//MARK: Enumerations -
 
 class InitialViewModel: NSObject {
     weak var parentView: UIView?
     var pulseView: PulseView?
     var itemStrengthLabel: UILabel?
     var transmitterLabel: UILabel?
+    var beaconTableView: UITableView?
     
     class func viewModel(parentView: UIView) -> InitialViewModel {
         var model: InitialViewModel = InitialViewModel()
@@ -32,6 +39,12 @@ class InitialViewModel: NSObject {
         parentView?.addConstraints([centerXConstraint,centerYConstraint])
         
         pulseView?.growShrinkCircle(true, duration: 0.85, size: nil)
+    }
+    
+    func configureCell(tableView: UITableView, indexPath: NSIndexPath, beacon: CHABeacon) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("beaconCell", forIndexPath: indexPath) as UITableViewCell
+        cell.textLabel.text = beacon.identifier
+        return cell
     }
     
     func sawBeacon(beacon: FYXTransmitter, rssiStrength: NSNumber) {

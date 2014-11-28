@@ -6,11 +6,28 @@
 //  Copyright (c) 2014 Chisel Apps. All rights reserved.
 //
 
+//
+//  Beacon Manager is responsible for keeping track of sighted beacons and
+//  removing beacons once we've moved out of their range
+
+
 import Foundation
 //MARK: - Protocol Declarations -
 protocol BeaconManagerDelegate {
     func didReceiveSighting(transmitter: FYXTransmitter, strength: NSNumber)
     func didDepartFrom(transmitter: FYXTransmitter)
+}
+
+class CHABeacon: NSObject {
+    var identifier: NSString
+    var rssiStrength: NSNumber
+    
+    init(identifier: NSString, rssiStrength strength: NSNumber) {
+        self.identifier = identifier
+        self.rssiStrength = strength
+        
+        super.init()
+    }
 }
 
 //MARK: - GIMBAL BEACON MANAGER
@@ -19,7 +36,8 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
     var sightingManager: FYXSightingManager?
     var visitManager: FYXVisitManager?
     var delegate: BeaconManagerDelegate?
-    var activeBeaconIdentifier: NSString?
+    var sightedBeacons: [CHABeacon] = [CHABeacon]()
+    
     weak var currentViewController: UIViewController?
     
     
@@ -39,22 +57,25 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
     //MARK: - Protocol Conformance -
     //MARK: FYXSightingManager
     func didReceiveSighting(transmitter: FYXTransmitter!, time: NSDate!, RSSI: NSNumber!) {
+        if !containsBeacon(beaconCollection: sightedBeacons, identifier: transmitter.identifier) {
+            var sightedBeacon: CHABeacon = CHABeacon(identifier: transmitter.identifier, rssiStrength: RSSI)
+            sightedBeacons.append(sightedBeacon)
+        }
         delegate?.didReceiveSighting(transmitter,strength:RSSI)
-        activeBeaconIdentifier = transmitter.identifier
     }
 
     //MARK: FYXVisitDelegate
     func didArrive(visit: FYXVisit!) {
         NSLog("arrived at beacon \(visit.transmitter.identifier)")
-        activeBeaconIdentifier = visit.transmitter.identifier
+        var arrivalBeacon: CHABeacon? = CHABeacon(identifier: visit.transmitter.identifier, rssiStrength: 0)
+        if !containsBeacon(beaconCollection: sightedBeacons, identifier: arrivalBeacon!.identifier) {
+            sightedBeacons.append(arrivalBeacon!)
+        }
     }
     
     func didDepart(visit: FYXVisit!) {
-        if visit.transmitter.identifier == activeBeaconIdentifier {
-            NSLog("departed from beacon \(visit.transmitter.identifier)")
-            activeBeaconIdentifier = nil
-            delegate?.didDepartFrom(visit.transmitter)
-        }
+        sightedBeacons = removeBeacon(beaconCollection: sightedBeacons, identifier: visit.transmitter.identifier)
+        delegate?.didDepartFrom(visit.transmitter)
     }
     
     //MARK: FYXSessionDelegate
@@ -97,4 +118,52 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
         var listFormat = NSPropertyListFormat.XMLFormat_v1_0
         return NSPropertyListSerialization.propertyListWithData(propertyListData!, options:0, format: &listFormat, error:&anError) as NSDictionary
     }
+    
+    func containsBeacon(beaconCollection beacons: [CHABeacon], identifier: NSString) -> Bool {
+        for beacon: CHABeacon in beacons {
+            if beacon.identifier == identifier {
+                return true
+            }
+        }
+        return false
+    }
+   
+    func removeBeacon(beaconCollection beacons: [CHABeacon], identifier: NSString) -> [CHABeacon] {
+        return beacons.filter {
+            var beacon: CHABeacon = $0
+            var matchesIdentifiers = beacon.identifier != identifier
+            return matchesIdentifiers
+        }
+    }
+
+    func retrieveLocalBeacon(identifier: NSString) -> CHABeacon? {
+        var matchingBeacon: CHABeacon
+        for beacon in sightedBeacons {
+            if beacon.identifier == identifier {
+                return beacon
+            }
+        }
+        return nil
+    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
 }

@@ -8,14 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, BeaconManagerDelegate,UITableViewDelegate  {
+class ViewController: UIViewController, BeaconManagerDelegate, UITableViewDelegate, UITableViewDataSource  {
     //MARK: Properties
     var gimbalBeaconManager: GimbalBeaconManager!
     var viewModel: InitialViewModel?
     var pulseView: PulseView?
+    var activeBeacon: CHABeacon?
     
     @IBOutlet weak var sightingLabel: UILabel!
     @IBOutlet weak var transmitterNameLabel: UILabel!
+    @IBOutlet weak var beaconTableView: UITableView!
     
     
     //MARK: ViewController LifeCycle
@@ -42,17 +44,53 @@ class ViewController: UIViewController, BeaconManagerDelegate,UITableViewDelegat
         viewModel?.itemStrengthLabel = sightingLabel
         viewModel?.transmitterLabel = transmitterNameLabel
         viewModel?.setupViews()
+        
+        viewModel?.beaconTableView = beaconTableView
+        viewModel?.beaconTableView?.delegate = self
+        viewModel?.beaconTableView?.dataSource = self
+        beaconTableView.layoutMargins = UIEdgeInsetsZero
     }
     
     //MARK: - Protocol Conformance -
     //MARK: BeaconManagerDelegate
     func didReceiveSighting(transmitter: FYXTransmitter, strength: NSNumber) {
-        viewModel?.sawBeacon(transmitter, rssiStrength: strength)
+        if let currentActiveBeacon = activeBeacon {
+            if isActiveBeacon(transmitter.identifier) {
+                viewModel?.sawBeacon(transmitter, rssiStrength: strength)
+            }
+        } else {
+            activeBeacon = gimbalBeaconManager.retrieveLocalBeacon(transmitter.identifier)
+            beaconTableView.reloadData()
+        }
     }
     
     func didDepartFrom(transmitter: FYXTransmitter) {
-        viewModel?.departed(transmitter)
+        if let currentActiveBeacon = activeBeacon {
+            if isActiveBeacon(transmitter.identifier) {
+                viewModel?.departed(transmitter)
+            }
+        }
+        beaconTableView.reloadData()
     }
-
+    
+    //MARK: UITableViewDataSource and Delegate
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return gimbalBeaconManager.sightedBeacons.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = viewModel?.configureCell(tableView, indexPath: indexPath, beacon: gimbalBeaconManager.sightedBeacons[indexPath.row])
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        activeBeacon = gimbalBeaconManager.sightedBeacons[indexPath.row]
+    }
+    
+    //MARK: Helper Functions
+    func isActiveBeacon(identifier: NSString) -> Bool {
+        return activeBeacon?.identifier == identifier
+    }
 }
 
