@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Chisel Apps. All rights reserved.
 //
 
-//
 //  Beacon Manager is responsible for keeping track of sighted beacons and
 //  removing beacons once we've moved out of their range
 
@@ -32,7 +31,7 @@ class CHABeacon: NSObject {
 }
 
 //MARK: - GIMBAL BEACON MANAGER
-class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXSessionDelegate, FYXBluetoothStateUpdateDelegate {
+class GimbalBeaconManager: NSObject, FYXVisitDelegate, FYXSessionDelegate, FYXBluetoothStateUpdateDelegate {
     //MARK: - Properties -
     var sightingManager: FYXSightingManager?
     var visitManager: FYXVisitManager?
@@ -47,7 +46,6 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
         self.currentViewController = currentViewController
         
         self.sightingManager = sightingManager
-        self.sightingManager!.delegate = self
         
         // make sure to get arrivals and departures
         self.visitManager = FYXVisitManager()
@@ -56,16 +54,6 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
     }
 
     //MARK: - Protocol Conformance -
-    //MARK: FYXSightingManager
-    func didReceiveSighting(transmitter: FYXTransmitter!, time: NSDate!, RSSI: NSNumber!) {
-        if !containsBeacon(beaconCollection: sightedBeacons, identifier: transmitter.identifier) {
-            var sightedBeacon: CHABeacon = CHABeacon(identifier: transmitter.identifier, rssiStrength: RSSI)
-            sightedBeacons.append(sightedBeacon)
-            delegate?.discoveredNewBeacon(sightedBeacon)
-        }
-        delegate?.didReceiveSighting(transmitter,strength:RSSI)
-    }
-
     //MARK: FYXVisitDelegate
     func didArrive(visit: FYXVisit!) {
         NSLog("arrived at beacon \(visit.transmitter.identifier)")
@@ -74,6 +62,15 @@ class GimbalBeaconManager: NSObject, FYXSightingDelegate, FYXVisitDelegate, FYXS
             sightedBeacons.append(arrivalBeacon!)
             delegate?.discoveredNewBeacon(arrivalBeacon!)
         }
+    }
+    
+    func receivedSighting(visit: FYXVisit!, updateTime: NSDate!, RSSI: NSNumber!) {
+        if !containsBeacon(beaconCollection: sightedBeacons, identifier: visit.transmitter.identifier) {
+            var sightedBeacon: CHABeacon = CHABeacon(identifier: visit.transmitter.identifier, rssiStrength: RSSI)
+            sightedBeacons.append(sightedBeacon)
+            delegate?.discoveredNewBeacon(sightedBeacon)
+        }
+        delegate?.didReceiveSighting(visit.transmitter,strength:RSSI)
     }
     
     func didDepart(visit: FYXVisit!) {
