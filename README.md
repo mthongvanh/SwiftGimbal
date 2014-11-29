@@ -4,8 +4,6 @@ A small Swift project that implements the **Gimbal Platform SDK (v1.30.1 11/19/2
 
 _**This project was built for iOS 8.1 using Xcode 6.2**_
 
----
-
 ## To Run SwiftGimbal
 <br>
 This project assumes that you've setup your Gimbal Beacons with the Series 10 (or 20) Recommended configuration. For further information: [Configure a Gimbal Beacon for use with the Gimbal SDK](http://gimbal.com/doc/proximity/ios.html#beacon_configuration).
