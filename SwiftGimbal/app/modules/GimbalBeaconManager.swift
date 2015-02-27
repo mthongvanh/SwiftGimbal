@@ -105,7 +105,7 @@ class GimbalBeaconManager: NSObject, FYXVisitDelegate, FYXSessionDelegate, FYXBl
         // retrieve our application info from the plist to authorize with Gimbal Servers
         var applicationInfo = loadPlist("GimbalManagerApplicationInfo")
         
-        FYX.setAppId(applicationInfo["GimbalApplicationID"]!.string,
+        FYX.setAppId(applicationInfo["GimbalApplicationID"] as String,
             appSecret:applicationInfo["GimbalSecret"] as String,
             callbackUrl:applicationInfo["CallbackURL"] as String)
         FYX.startServiceAndAuthorizeWithViewController(currentViewController, delegate: self)
