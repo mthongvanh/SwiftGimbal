@@ -2,6 +2,8 @@
 
 A small Swift project that implements the **Gimbal Platform SDK (v1.30.1 11/19/2014)**. This app aims to show others how to get the SDK up and running in Swift. It focuses on Proximity detection and employs the FYXVisitDelegate. Arrivals, departures and sightings are handled by the rather simple GimbalBeaconManager. 
 
+For further help look for me as unkowed in #iosdev or #iphonedev on irc.freenode.net.
+
 _**This project was built for iOS 8.1 using Xcode 6.2**_
 
 ## To Run SwiftGimbal
