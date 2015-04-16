@@ -105,18 +105,18 @@ class GimbalBeaconManager: NSObject, FYXVisitDelegate, FYXSessionDelegate, FYXBl
         // retrieve our application info from the plist to authorize with Gimbal Servers
         var applicationInfo = loadPlist("GimbalManagerApplicationInfo")
         
-        FYX.setAppId(applicationInfo["GimbalApplicationID"] as String,
-            appSecret:applicationInfo["GimbalSecret"] as String,
-            callbackUrl:applicationInfo["CallbackURL"] as String)
+        FYX.setAppId(applicationInfo["GimbalApplicationID"] as! String,
+            appSecret:applicationInfo["GimbalSecret"] as! String,
+            callbackUrl:applicationInfo["CallbackURL"] as! String)
         FYX.startServiceAndAuthorizeWithViewController(currentViewController, delegate: self)
     }
     
     func loadPlist(plistName: String) -> NSDictionary {
         var anError: NSError? = nil
-        var propertyListFilePath = NSBundle.mainBundle().pathForResource(plistName, ofType: "plist")?
+        var propertyListFilePath = NSBundle.mainBundle().pathForResource(plistName, ofType: "plist")
         var propertyListData: NSData? = NSData(contentsOfFile:propertyListFilePath!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &anError)
         var listFormat = NSPropertyListFormat.XMLFormat_v1_0
-        return NSPropertyListSerialization.propertyListWithData(propertyListData!, options:0, format: &listFormat, error:&anError) as NSDictionary
+        return NSPropertyListSerialization.propertyListWithData(propertyListData!, options:0, format: &listFormat, error:&anError) as! NSDictionary
     }
     
     func containsBeacon(beaconCollection beacons: [CHABeacon], identifier: NSString) -> Bool {

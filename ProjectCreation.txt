@@ -1,0 +1,14 @@
+1. import frameworks
+do steps here: http://gimbal.com/doc/ios_quickstart.html
+esp. UserContext.plist
+2. create bridging header file
+3. create imports
+4. add bridging header file path to build settings -> swift compiler - code generation
+5. check build settings -> packaging -> defines modules : YES
+
+
+6. Modify QLPushNotificationsConnector to fix "Unknown File Type" 
+#import <UIKit/UIKit.h> 
+@interface QLPushNotificationsConnector : NSObject
+
+7. 

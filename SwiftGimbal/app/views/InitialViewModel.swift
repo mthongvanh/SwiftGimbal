@@ -42,8 +42,14 @@ class InitialViewModel: NSObject {
     }
     
     func configureCell(tableView: UITableView, indexPath: NSIndexPath, beacon: CHABeacon) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("beaconCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = beacon.identifier
+        var cell = tableView.dequeueReusableCellWithIdentifier("beaconCell", forIndexPath: indexPath) as! UITableViewCell
+        if let identifier = beacon.identifier as? String
+        {
+            if let cellLabel = cell.textLabel
+            {
+                cellLabel.text = identifier
+            }
+        }
         return cell
     }
     
