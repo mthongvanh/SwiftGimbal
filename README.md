@@ -4,7 +4,7 @@ A small Swift project that implements the **Gimbal Platform SDK (v1.30.1 11/19/2
 
 For further help look for me as unkowed in #iosdev or #iphonedev on irc.freenode.net.
 
-_**This project was built for iOS 8.1 using Xcode 6.2**_
+_**This project has been updated for the iOS 8.3 SDK using Xcode 6.3**_
 
 ## To Run SwiftGimbal
 <br>
